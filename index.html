@@ -3,49 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Options</title>
+    <title>Booking Options - Kashipur</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; }
-        .option { margin-bottom: 10px; }
-        .price { font-weight: bold; font-size: 1.2em; }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            color: #5a5a5a;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+        }
+        .price {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .payment-details {
+            margin-top: 30px;
+        }
+        .payment-details p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Booking Options</h1>
+        <h1>Booking Options for Kashipur Visit</h1>
         <form id="bookingForm">
-            <div class="option">
-                <label for="transfer">Transfer from Kashipur to College:</label>
-                <select id="transfer" name="transfer">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-            <div class="option">
-                <label for="accommodation">Accommodation Type:</label>
-                <select id="accommodation" name="accommodation">
-                    <option value="single">Single</option>
-                    <option value="double">Double</option>
-                    <option value="triple">Triple</option>
-                </select>
-            </div>
-            <div class="option">
-                <label for="delhiTransfer">Transfer to Delhi on 13th:</label>
-                <select id="delhiTransfer" name="delhiTransfer">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
+            <label for="transfer">Transfer from Kashipur to College:</label>
+            <select id="transfer" name="transfer">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label for="accommodation">Accommodation Type:</label>
+            <select id="accommodation" name="accommodation">
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="triple">Triple</option>
+            </select>
+            
+            <label for="delhiTransfer">Transfer to Delhi on 13th:</label>
+            <select id="delhiTransfer" name="delhiTransfer">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
             <div class="price">
                 Total Price: <span id="totalPrice">0</span> INR
             </div>
         </form>
-        <div>
-            <h2>Payment Details</h2>
-            <p>UPI ID: 9993069529@pz@upi</p>
-            <img src="qrcode.png" alt="UPI QR Code">
+        <div class="payment-details">
+            <p>Pay via UPI:</p>
+            <p>UPI ID: 9993069529@pz</p>
+            <div class="qr-code">
+                <img src="qrcode.jpeg" alt="UPI QR Code">
+            </div>
         </div>
+    </div>
+    <div class="footer">
+        <p>Contact us for any queries. We look forward to hosting you!</p>
     </div>
 
     <script>
