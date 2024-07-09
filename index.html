@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Options</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        .option { margin-bottom: 10px; }
+        .price { font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Options</h1>
+        <form id="bookingForm">
+            <div class="option">
+                <label for="transfer">Transfer from Kashipur to College:</label>
+                <select id="transfer" name="transfer">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="accommodation">Accommodation Type:</label>
+                <select id="accommodation" name="accommodation">
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="triple">Triple</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="delhiTransfer">Transfer to Delhi on 13th:</label>
+                <select id="delhiTransfer" name="delhiTransfer">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="price">
+                Total Price: <span id="totalPrice">0</span> INR
+            </div>
+        </form>
+        <div>
+            <h2>Payment Details</h2>
+            <p>UPI ID: 9993069529@pz@upi</p>
+            <img src="qrcode.png" alt="UPI QR Code">
+        </div>
+    </div>
+
+    <script>
+        const prices = {
+            "yes_single_yes": 11327,
+            "yes_double_yes": 8327,
+            "yes_single_no": 9656,
+            "yes_double_no": 6656,
+            "no_single_yes": 9656,
+            "no_double_yes": 6656,
+            "no_single_no": 7985,
+            "no_double_no": 4985,
+            "yes_triple_no": 5657
+        };
+
+        const form = document.getElementById('bookingForm');
+        const totalPriceElement = document.getElementById('totalPrice');
+
+        form.addEventListener('change', updatePrice);
+
+        function updatePrice() {
+            const transfer = form.transfer.value;
+            const accommodation = form.accommodation.value;
+            const delhiTransfer = form.delhiTransfer.value;
+
+            const key = `${transfer}_${accommodation}_${delhiTransfer}`;
+            const price = prices[key] || 0;
+
+            totalPriceElement.textContent = price;
+        }
+    </script>
+</body>
+</html>
